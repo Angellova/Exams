@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Flower_Shop
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var magnolia = double.Parse(Console.ReadLine());
+            var hyacinth = double.Parse(Console.ReadLine());
+            var rose = double.Parse(Console.ReadLine());
+            var cactus = double.Parse(Console.ReadLine());
+            var giftPrice = double.Parse(Console.ReadLine());
+
+
+            var magnoliaPrice = magnolia * 3.25;
+            var hyacinthPrice = hyacinth * 4.00;
+            var rosePrise = rose * 3.50;
+            var cactusPrice = cactus * 8.00;
+
+            var profit = magnoliaPrice + hyacinthPrice + rosePrise + cactusPrice;
+            var totalProfit = profit - ((profit / 10.0) / 2.0);
+            
+            if (totalProfit >= giftPrice)
+            {
+                var remainingMoney = totalProfit - giftPrice;
+                Console.WriteLine("She is left with {0} leva.", Math.Floor(remainingMoney));
+            }
+            else if (totalProfit < giftPrice)
+            {
+                var remainingMoney = giftPrice - totalProfit;
+                Console.WriteLine("She will have to borrow {0} leva.", Math.Ceiling(remainingMoney));
+            }
+        }
+    }
+}
