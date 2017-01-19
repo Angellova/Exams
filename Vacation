@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Vacation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var adults = double.Parse(Console.ReadLine());
+            var students = double.Parse(Console.ReadLine());
+            var night = double.Parse(Console.ReadLine());
+            var transport = Console.ReadLine();
+
+            var people = students + adults;
+            var studentsTicket = 0.0;
+            var adultsTicket = 0.0;
+            var nightPrice = night * 82.99;
+
+            if (transport == "train")
+            {
+                if(people < 50)
+                {
+                    studentsTicket = students * 14.99;
+                    adultsTicket = adults * 24.99;
+                }
+                else if(people >= 50)
+                {
+                    studentsTicket = students * (14.99 * 0.50);
+                    adultsTicket = adults * (24.99 * 0.50);
+                }
+            }
+            else if(transport == "bus")
+            {
+                studentsTicket = students * 28.50;
+                adultsTicket = adults * 32.50;
+            }
+            else if (transport == "boat")
+            {
+                studentsTicket = students * 39.99;
+                adultsTicket = adults * 42.99;
+            }
+            else if (transport == "airplane")
+            {
+                studentsTicket = students * 50.00;
+                adultsTicket = adults * 70.00;
+            }
+
+            var price = ((studentsTicket + adultsTicket) * 2) + nightPrice;
+            var totalPrice = price + (price * 0.10);
+
+            Console.WriteLine("{0:f2}",totalPrice);
+
+
+        }
+    }
+}
