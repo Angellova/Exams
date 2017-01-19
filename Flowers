@@ -1,0 +1,142 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Flowers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            var chrysanthemums = int.Parse(Console.ReadLine());
+            var roses = int.Parse(Console.ReadLine());
+            var tulips = int.Parse(Console.ReadLine());
+            var season = Console.ReadLine();
+            var day = Console.ReadLine();
+
+            var flowers = roses + chrysanthemums + tulips;
+            var chrysanthemumsPrice = 0.0;
+            var rosesPrice = 0.0;
+            var tulipsPrice = 0.0;
+            var bouquet = 0.0;
+
+
+            if (day == "Y")
+            {
+                if (season == "Spring")
+                {
+                    chrysanthemumsPrice = chrysanthemums * 2.0;
+                    rosesPrice = roses * 4.10;
+                    tulipsPrice = tulips * 2.50;
+                    var firstbouquet = (chrysanthemumsPrice + rosesPrice + tulipsPrice) * 1.15;
+                    if (tulips > 7)
+                    {
+                        bouquet = firstbouquet * 0.95;
+                    }
+                    else if (tulips <= 7)
+                    {
+                        bouquet = firstbouquet;
+                    }
+                }
+               else if (season == "Summer")
+                {
+                    chrysanthemumsPrice = chrysanthemums * 2.0;
+                    rosesPrice = roses * 4.10;
+                    tulipsPrice = tulips * 2.50;
+
+                    bouquet = (chrysanthemumsPrice + rosesPrice + tulipsPrice) * 1.15;
+                }
+               else if (season == "Autumn")
+                {
+                    chrysanthemumsPrice = chrysanthemums * 3.75;
+                    rosesPrice = roses * 4.50;
+                    tulipsPrice = tulips * 4.15;
+
+                    bouquet = (chrysanthemumsPrice + rosesPrice + tulipsPrice) * 1.15;
+
+                }
+                else if (season == "Winter")
+                {
+                    chrysanthemumsPrice = chrysanthemums * 3.75;
+                    rosesPrice = roses * 4.50;
+                    tulipsPrice = tulips * 4.15;
+                    var firstbouquet = (chrysanthemumsPrice + rosesPrice + tulipsPrice) * 1.15;
+
+                    if (roses >= 10)
+                    {
+                        bouquet = firstbouquet * 0.90;
+                    }
+                    else if (roses < 10)
+                    {
+                        bouquet = firstbouquet;
+                    }
+                }
+            }
+            else if (day == "N")
+            {
+                if (season == "Spring")
+                {
+                    chrysanthemumsPrice = chrysanthemums * 2.0;
+                    rosesPrice = roses * 4.10;
+                    tulipsPrice = tulips * 2.50;
+                    if (tulips > 7)
+                    {
+                        bouquet = (chrysanthemumsPrice + rosesPrice + tulipsPrice) * 0.95;
+                    }
+                    else if (tulips <= 7)
+                    {
+                        bouquet = (chrysanthemumsPrice + rosesPrice + tulipsPrice);
+                    }
+                }
+                else if (season == "Summer")
+                {
+                    chrysanthemumsPrice = chrysanthemums * 2.0;
+                    rosesPrice = roses * 4.10;
+                    tulipsPrice = tulips * 2.50;
+
+                    bouquet = (chrysanthemumsPrice + rosesPrice + tulipsPrice);
+                }
+                else if (season == "Autumn")
+                {
+                    chrysanthemumsPrice = chrysanthemums * 3.75;
+                    rosesPrice = roses * 4.50;
+                    tulipsPrice = tulips * 4.15;
+
+                    bouquet = (chrysanthemumsPrice + rosesPrice + tulipsPrice);
+                }
+                else if (season == "Winter")
+                {
+                    chrysanthemumsPrice = chrysanthemums * 3.75;
+                    rosesPrice = roses * 4.50;
+                    tulipsPrice = tulips * 4.15;
+
+                    if (roses >= 10)
+                    {
+                        bouquet = (chrysanthemumsPrice + rosesPrice + tulipsPrice) * 0.90;
+                    }
+                    else if (roses < 10)
+                    {
+                        bouquet = (chrysanthemumsPrice + rosesPrice + tulipsPrice);
+                    }
+                }
+            }
+            
+            var totalPrice = 0.0;
+            if (flowers > 20)
+            {
+                totalPrice = (bouquet * 0.80) + 2.0;
+                Console.WriteLine("{0:f2}", totalPrice);
+            }
+            else if (flowers <= 20)
+            {
+                totalPrice = bouquet + 2.0;
+                Console.WriteLine("{0:f2}", totalPrice);
+            }
+            
+        }
+    }
+
+}
