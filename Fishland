@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Fishland
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var mackerelPrice = double.Parse(Console.ReadLine());
+            var spratPrice = double.Parse(Console.ReadLine());
+            var beltedBonito = double.Parse(Console.ReadLine());
+            var scad = double.Parse(Console.ReadLine());
+            var clams = double.Parse(Console.ReadLine());
+
+            var beltedBonitoPrice = (mackerelPrice + (mackerelPrice * 0.60)) * beltedBonito;
+            var scadPrice = (spratPrice + (spratPrice * 0.80)) * scad;
+            var clamsPrice = clams * 7.50;
+
+            var price = clamsPrice + scadPrice + beltedBonitoPrice;
+
+            Console.WriteLine("{0:f2}", price);
+
+        }
+    }
+}
