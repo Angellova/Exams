@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Distance
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var speed = double.Parse(Console.ReadLine());
+            var firstTime1 = int.Parse(Console.ReadLine());
+            var secondTime2 = int.Parse(Console.ReadLine());
+            var thirdTime3 = int.Parse(Console.ReadLine());
+
+            var firstTime = firstTime1 / 60.0;
+            var secondTime = secondTime2 / 60.0;
+            var thirdTime = thirdTime3 / 60.0;
+            var secondspeed = speed * 1.1;
+
+            var firstSpeed = speed * firstTime;
+            var secondSpeed = secondspeed * secondTime;
+            var thirdSpeed = (secondspeed * 0.95) * thirdTime;
+
+            var result = firstSpeed + secondSpeed + thirdSpeed;
+
+            Console.WriteLine("{0:f2}",result);
+        }
+    }
+}
