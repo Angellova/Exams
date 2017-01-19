@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bike_Race
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var juniors = double.Parse(Console.ReadLine());
+            var seniors = double.Parse(Console.ReadLine());
+            var floor = (Console.ReadLine());
+
+            var juniorPrice = 0.0;
+            var seniorPrice = 0.0;
+            var moneyFromTickets = 0.0;
+            if(floor == "trail")
+            {
+                juniorPrice = juniors * 5.50;
+                seniorPrice = seniors * 7.0;
+                moneyFromTickets = juniorPrice + seniorPrice;
+            }
+            else if(floor == "cross-country")
+            {
+                var num = juniors + seniors;
+                if (num < 50)
+                {
+                    juniorPrice = juniors * 8.0;
+                    seniorPrice = seniors * 9.50;
+                    moneyFromTickets = juniorPrice + seniorPrice;
+                }
+                else if(num >= 50)
+                {
+                    juniorPrice = juniors * 6.0;
+                    seniorPrice = seniors * 7.125;
+                    moneyFromTickets = juniorPrice + seniorPrice;
+                }
+            }
+            else if (floor == "downhill")
+            {
+                juniorPrice = juniors * 12.25;
+                seniorPrice = seniors * 13.75;
+                moneyFromTickets = juniorPrice + seniorPrice;
+            }
+            else if (floor == "road")
+            {
+                juniorPrice = juniors * 20.0;
+                seniorPrice = seniors * 21.50;
+                moneyFromTickets = juniorPrice + seniorPrice;
+            }
+
+            var result = moneyFromTickets - ((moneyFromTickets / 10) / 2);
+
+            Console.WriteLine("{0:f2}", result);
+        }
+    }
+}
