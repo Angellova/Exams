@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace House_Price
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var smallRoom = double.Parse(Console.ReadLine());
+            var kitchen = double.Parse(Console.ReadLine());
+            var priceM = double.Parse(Console.ReadLine());
+
+            var bathroom = smallRoom / 2.0;
+            var mediumRoom = smallRoom + (smallRoom / 10.0);
+            var bigRoom = mediumRoom + (mediumRoom / 10.0);
+            
+            var firstArea = (smallRoom + kitchen + bathroom + mediumRoom + bigRoom);
+            var area = firstArea + ((firstArea / 10) / 2);
+            var totalPrice = area * priceM;
+            Console.WriteLine("{0:f2}", totalPrice);
+        }
+    }
+}
