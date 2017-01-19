@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Change_Tiles
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var money = double.Parse(Console.ReadLine());
+            var a = double.Parse(Console.ReadLine());
+            var b = double.Parse(Console.ReadLine());
+            var c = double.Parse(Console.ReadLine());
+            var h = double.Parse(Console.ReadLine());
+            var platePrice = double.Parse(Console.ReadLine());
+            var masterPrice = double.Parse(Console.ReadLine());
+
+            var area = a * b;
+            var areaTriangle = (c * h) / 2;
+            var plates = (Math.Ceiling(area / areaTriangle)) + 5;
+            var totalPlates = plates * platePrice;
+            var needMoney = totalPlates + masterPrice;
+
+            if(money >= needMoney)
+            {
+                var result = money - needMoney;
+                Console.WriteLine("{0:f2} lv left.",result);
+            }
+            else if(needMoney > money)
+            {
+                var result = needMoney - money;
+                Console.WriteLine("You'll need {0:f2} lv more.",result);
+            }
+
+        }
+    }
+}
